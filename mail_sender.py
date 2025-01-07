@@ -12,7 +12,6 @@ def generate_log_file(receivers : str, result : bool):
 def read_conf_file(filename : str):
     file = open(filename, 'r')
     receivers, mail_subject, mail_content = file.readline().strip().split(',')
-    print(receivers)
     file.close()
     receivers = receivers.replace(';', ',')
     return (receivers, mail_subject, mail_content)
@@ -25,7 +24,6 @@ def read_credentials_file(filename : str):
 
 if __name__ == '__main__':
     receivers, mail_subject, mail_content = read_conf_file('conf_tx_transito.txt')
-    print(receivers)
     try:
         sender_address, sender_pass = read_credentials_file('credentials.txt')
         #Setup the MIME
